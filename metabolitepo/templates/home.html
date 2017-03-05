@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+  <form action="{{ url_for('search') }}" method=post class=search>
+    <dl>
+      <dt>Cell:
+      <dd><input type=text size=12 name=cell>
+      <dt>Cell Strain:
+      <dd><input type=text size=12 name=cell_strain>
+      <dt>Input Chemical:
+      <dd><input type=text size=12 name=input_chemical>
+      <dt>Output Chemical:
+      <dd><input type=text size=12 name=output_chemical>
+      <dd><input type=submit value=Search>
+    </dl>
+  </form>
+
+  {% if session.searched %}
+    <ul class=entries>
+    {% for entry in entries %}
+      <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}</li>
+    {% endfor %}
+  {% endif %} 
+  </ul>
+{% endblock %}
