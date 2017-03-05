@@ -1,0 +1,3 @@
+graft metabolitepo/templates
+graft metabolitepo/static
+inclue metabolitepo/schema.sql
